@@ -23,16 +23,19 @@ class AlienInvasion:
         def run_game(self):
             """Start the main loop for the game"""
             while True:
-                # Watch for keyboard and mouse events
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        sys.exit()
+                self._check_events()
+                self._update_screen()
 
-            #Redraw screen during each pass through the loop
+        def _check_events(self):
+            """Respond to keypresses, mouse events.""" 
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+
+        def _update_screen(self):
+            """Update images on screen, flip to new screen"""
             self.screen.fill(self.settings.bg_color)
             self.ship.blitme()
-
-            # Make the most recently drawn screen visible.
             pygame.display.flip()
 
 if __name__ == '__main__':
@@ -40,19 +43,19 @@ if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
 
-class Ship:                                                    
-    """A class to manage the ship."""
-    def __init__(self, ai_game):
-        self.screen = ai_game.screen
-        self.screen_rect = ai_game.screen.get_rect()
+#class Ship:                                                    
+ #   """A class to manage the ship."""
+  #  def __init__(self, ai_game):
+   #     self.screen = ai_game.screen
+    #    self.screen_rect = ai_game.screen.get_rect()
  
         #Load ship image, get its rect.
-        self.image = pygame.image.load('images/ship.bmp')
-        self.rect = self.image.get_rect()
+     #   self.image = pygame.image.load('images/ship.bmp')
+      #  self.rect = self.image.get_rect()
  
      #Start each new ship at the bottom center of the screen.
-    self.rect.midbottom = self.screen_rect.midbottom
+    #self.rect.midbottom = self.screen_rect.midbottom
  
-    def blitme(self):
-        "Draw the ship at its current location."
-        self.screen.blit(self.image, self.rect)
+#    def blitme(self):
+ #       "Draw the ship at its current location."
+  #      self.screen.blit(self.image, self.rect)
