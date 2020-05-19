@@ -5,12 +5,12 @@ squares = [1, 4, 9, 16, 25]
 cubes = [1, 8, 27, 64, 125]
 
 #style
-plt.style.use('seaborn-bright')
+plt.style.use('seaborn-dark')
 
 #begin generating plot
 fig, ax = plt.subplots()
-ax.plot(input_values, squares, linewidth=3)
-ax.plot(input_values, cubes, linewidth=3)
+ax.plot(input_values, squares, c="yellow", linewidth=3)
+ax.plot(input_values, cubes, c="purple", linewidth=3)
 
 #Adds a title and labels
 ax.set_title("Square Numbers", fontsize =24)
